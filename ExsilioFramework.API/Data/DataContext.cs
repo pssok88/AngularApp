@@ -1,5 +1,6 @@
 using API.Models;
 using Microsoft.EntityFrameworkCore;
+using TeamProspect.API.Models;
 
 namespace API.Data
 {
@@ -8,5 +9,6 @@ namespace API.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options){}
 
         public DbSet<Value> Values {get; set;}
+        public DbSet<User> Users { get; set; }
     }
 }
