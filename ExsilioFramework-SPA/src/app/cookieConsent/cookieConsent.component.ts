@@ -15,7 +15,7 @@ export class CookieConsentComponent implements OnInit {
     this.hostName = window.location.hostname;
     this.cookieDataOnLoad();
 
-    //https://www.osano.com/cookieconsent/documentation/javascript-api/
+    // https://www.osano.com/cookieconsent/documentation/javascript-api/
     // Possible values for cookie-  deny: ‘deny’, allow: ‘allow’, dismiss: ‘dismiss’
     let cc = window as any;
 
@@ -26,7 +26,7 @@ export class CookieConsentComponent implements OnInit {
 
     cc.cookieconsent.initialise({
       palette: {
-        //popup, button, and highlight properties
+        // popup, button, and highlight properties
         popup: {
           background: '#164969',
         },
@@ -38,16 +38,14 @@ export class CookieConsentComponent implements OnInit {
       theme: 'classic', // block, edgeless, or classic
       onPopupOpen: this.cookieDataOnPopupOpen,
       onPopupClose: this.cookieDataOnPopupClose,
-      onInitialise: this.getCookie = () => (status),
+      onInitialise: this.getCookie = () => status,
       onStatusChange: this.cookieDataOnChange,
       content: {
-        message: Constants.COOKIE_MESSAGE,
-          // checkbox +
-          // checkboxLabel,
+        message: Constants.COOKIE_MESSAGE + checkbox + checkboxLabel,
         dismiss: 'Got it!',
         link: 'Learn more',
         href:
-          'https://github.com/pssok88/AngularApp/tree/master/ExsilioFramework.API', //environment.Frontend + "/dataprivacy"
+          'https://github.com/pssok88/AngularApp/tree/master/ExsilioFramework.API', // environment.Frontend + "/dataprivacy"
       },
       position: 'bottom', // top, bottom – Banner ** top-left, top-right, bottom-left, bottom-right – Floating
     });
@@ -71,11 +69,11 @@ export class CookieConsentComponent implements OnInit {
     // call service and pass info
     console.log(
       'popup open: ' +
-      this.hostName +
-      ', ' +
-      this.ipAddress +
-      ', ' +
-      this.getCookie()
+        this.hostName +
+        ', ' +
+        this.ipAddress +
+        ', ' +
+        this.getCookie()
     );
   }
 
@@ -84,11 +82,11 @@ export class CookieConsentComponent implements OnInit {
     // call service and pass info
     console.log(
       'popup close: ' +
-      this.hostName +
-      ', ' +
-      this.ipAddress +
-      ', ' +
-      this.getCookie()
+        this.hostName +
+        ', ' +
+        this.ipAddress +
+        ', ' +
+        this.getCookie()
     );
   }
 
@@ -97,11 +95,11 @@ export class CookieConsentComponent implements OnInit {
     // call service and pass info
     console.log(
       'status change: ' +
-      this.hostName +
-      ', ' +
-      this.ipAddress +
-      ', ' +
-      this.getCookie()
+        this.hostName +
+        ', ' +
+        this.ipAddress +
+        ', ' +
+        this.getCookie()
     );
   }
 
