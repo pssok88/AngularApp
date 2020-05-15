@@ -33,6 +33,7 @@ namespace TeamProspect
             services.AddControllers();
             services.AddCors();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            
             // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
