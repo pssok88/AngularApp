@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-value',
@@ -8,12 +9,38 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ValueComponent implements OnInit {
   values: any;
+  private readonly notifier: NotifierService;
+  url = 'https://github.com/pssok88/TeamProspect/tree/master/ExsilioFramework.API';
+  @ViewChild('customNotification', { static: true }) customNotificationTmpl;
 
-  constructor(private http: HttpClient) {}
+  /**
+   *
+   */
+  constructor(private http: HttpClient, notifierService: NotifierService) {
+    this.notifier = notifierService;
+
+  }
 
   ngOnInit() {
     this.getValues();
+    // this.show();
   }
+
+  showNotification() {
+    this.notifier.show({
+        message: 'Hi there!',
+        type: 'info',
+        template: this.customNotificationTmpl
+    });
+}
+  show(){
+    this.notifier.notify(
+      'success',
+      'You are awesome! I mean it! ' + this.url,
+      'notify',
+      );
+  }
+
 
   getValues() {
     // when an obserable is being returned, you need to subscribe to observable

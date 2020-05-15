@@ -1,3 +1,23 @@
 <p>Value works!</p>
+<div id="notify"></div>
+<button type="button" (click)="show()">Show basic</button>
+<button type="button" (click)="showNotification()">Show Special</button>
+
 <!-- '*' means the it is a structural directive, which modifys the DOM in some way  -->
-<p *ngFor="let value of values">{{value.id}}: {{value.name}}</p> 
+<p *ngFor="let value of values">{{ value.id }}: {{ value.name }}</p>
+
+
+<ng-template #customNotification let-notificationData="notification" class="cookieBanner">
+  <p type="notificationData.type">
+    {{ notificationData.message }}
+  </p>
+  <div>
+    <label>Don't show again</label>
+    <input type="checkbox" />
+  </div>
+
+  <a
+    href="https://github.com/pssok88/TeamProspect/tree/master/ExsilioFramework.API"
+    >link to github</a
+  >
+</ng-template>
