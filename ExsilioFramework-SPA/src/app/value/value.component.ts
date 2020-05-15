@@ -10,7 +10,7 @@ import { NotifierService } from 'angular-notifier';
 export class ValueComponent implements OnInit {
   values: any;
   private readonly notifier: NotifierService;
-  url = 'https://github.com/pssok88/TeamProspect/tree/master/ExsilioFramework.API';
+  url = 'https://github.com/pssok88/AngularApp/tree/master/ExsilioFramework.API';
   @ViewChild('customNotification', { static: true }) customNotificationTmpl;
 
   /**

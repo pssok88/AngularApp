@@ -50,7 +50,7 @@ export class CookieConsentComponent implements OnInit {
         dismiss: 'Got it!',
         link: 'Learn more',
         href:
-          'https://github.com/pssok88/TeamProspect/tree/master/ExsilioFramework.API', //environment.Frontend + "/dataprivacy"
+          'https://github.com/pssok88/AngularApp/tree/master/ExsilioFramework.API', //environment.Frontend + "/dataprivacy"
       },
       position: 'bottom', // top, bottom – Banner ** top-left, top-right, bottom-left, bottom-right – Floating
     });
