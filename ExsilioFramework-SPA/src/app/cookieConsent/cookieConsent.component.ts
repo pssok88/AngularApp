@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Constants } from '../constants';
 
 @Component({
   selector: 'app-cookieConsent',
@@ -9,7 +10,6 @@ export class CookieConsentComponent implements OnInit {
   constructor() {}
   hostName: string;
   ipAddress = '198.1.1.0';
-  ww: any;
 
   ngOnInit() {
     this.hostName = window.location.hostname;
@@ -18,8 +18,6 @@ export class CookieConsentComponent implements OnInit {
     //https://www.osano.com/cookieconsent/documentation/javascript-api/
     // Possible values for cookie-  deny: ‘deny’, allow: ‘allow’, dismiss: ‘dismiss’
     let cc = window as any;
-    // console.log('cc: ', cc);
-    this.ww = cc;
 
     let checkbox =
       '<br ><input type="checkbox" class="form-check-input" (change)="checked($event)" id="exampleCheck1">';
@@ -43,10 +41,9 @@ export class CookieConsentComponent implements OnInit {
       onInitialise: this.getCookie = () => (status),
       onStatusChange: this.cookieDataOnChange,
       content: {
-        message:
-          'We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services' +
-          checkbox +
-          checkboxLabel,
+        message: Constants.COOKIE_MESSAGE,
+          // checkbox +
+          // checkboxLabel,
         dismiss: 'Got it!',
         link: 'Learn more',
         href:
@@ -108,7 +105,7 @@ export class CookieConsentComponent implements OnInit {
     );
   }
 
-  getCookie(status?: any): string {
+  getCookie(): string {
     let cookies =
       window.document.cookie != '' ? window.document.cookie : 'no cookies';
     return cookies;
